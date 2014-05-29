@@ -1,4 +1,4 @@
-/*tst in normales compare umwandeln für eigenartigkeit*/
+
 .globl getbase
 GetMailboxBase:
 ldr r0,=0x2000B880
@@ -6,7 +6,8 @@ mov pc,lr
 
 .globl boxwrite
 boxwrite:
-tst r0, 0b1111
+and r0, 0b1111
+cmp r0, #0
 movne pc, lr
 cmp r1, #15
 movhi pc, lr

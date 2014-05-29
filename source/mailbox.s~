@@ -1,3 +1,4 @@
+/*tst in normales compare umwandeln für eigenartigkeit*/
 .globl getbase
 GetMailboxBase:
 ldr r0,=0x2000B880
