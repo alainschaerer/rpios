@@ -6,8 +6,7 @@ mov pc,lr
 
 .globl boxwrite
 boxwrite:
-and r0, #0b1111
-cmp r0, #0
+tst r0, #0b1111
 movne pc, lr
 cmp r1, #15
 movhi pc, lr
