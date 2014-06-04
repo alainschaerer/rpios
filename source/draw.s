@@ -4,7 +4,7 @@ forecolor:
 .hword 0xFFFF
 
 .align 2
-gaddress
+gaddress:
 .int 0
 
 .section .text
@@ -24,7 +24,7 @@ str r0, [r1]
 mov pc, lr
 
 .globl dpixel
-dpixel
+dpixel:
 xcord .req r0
 ycord .req r1
 ldr r2, =gaddress
@@ -33,9 +33,11 @@ width .req r3
 height .req r4
 ldr width, [addr, #0]
 ldr height, [addr, #4]
-cmp xcord,  sub width, #1
+sub width, #1
+cmp xcord,  width
 movhi pc, lr
-cmp ycord, sub height, #1
+sub height, #1
+cmp ycord, height
 movhi pc, lr
 add width, #1
 add height, #1
@@ -143,7 +145,6 @@ b loop$
 .unreq deltax
 .unreq stepx
 .unreq deltay
-.unreq deltax
 .unreq error
 
 

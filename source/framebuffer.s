@@ -28,7 +28,7 @@ result .req r0
 movhi result,#0
 movhi pc,lr
 
-info.req r4
+info .req r4
 push {r4,lr}
 ldr info,=fbufferinfo
 str width,[r4,#0]
