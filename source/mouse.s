@@ -204,4 +204,14 @@ pop {r1, r2, pc}
 .globl mousegtkeydwn
 mousegtkeyisdwn:
 
-push {r0, r1
+push {r0, r1,r2,lr}
+bl index
+mousenum .req r1
+mov mousenum, r0
+pop {r0}
+cmp mousenum, #0
+moveq r0, #0
+
+ldr r2, =device
+str r0 [r2, #2]
+pop {r1, r2, pc}
